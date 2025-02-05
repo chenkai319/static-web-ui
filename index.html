@@ -8,36 +8,47 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         table {
-            width: 80%;
-            margin: 20px auto;
+            width: 90%;
+            height: 70vh;
             border-collapse: collapse;
+            font-size: 1.5em;
         }
         td {
-            border: 1px solid black;
-            padding: 5px;
+            border: 2px solid black;
+            padding: 10px;
             text-align: left;
             position: relative;
         }
         td:first-child, td:nth-child(3) {
-            width: 5%;
+            width: 10%;
         }
         td:nth-child(2), td:nth-child(4) {
-            width: 45%;
+            width: 40%;
         }
         .btn {
-            margin-right: 5px;
+            margin-right: 10px;
+            font-size: 1em;
+            padding: 5px;
         }
         .dropdown {
             display: none;
             position: absolute;
             background: white;
-            border: 1px solid black;
+            border: 2px solid black;
             list-style: none;
             padding: 5px;
             margin: 0;
             z-index: 10;
+            font-size: 1.2em;
         }
         .dropdown li {
             cursor: pointer;
@@ -45,6 +56,12 @@
         }
         .dropdown li:hover {
             background: lightgray;
+        }
+        .clear-btn {
+            margin-top: 20px;
+            font-size: 1.5em;
+            padding: 10px 20px;
+            cursor: pointer;
         }
     </style>
     <script>
@@ -115,6 +132,6 @@
             </script>
         </tbody>
     </table>
-    <button onclick="clearAll()">Clear All</button>
+    <button class="clear-btn" onclick="clearAll()">Clear All</button>
 </body>
 </html>
