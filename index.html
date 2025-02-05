@@ -7,14 +7,15 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
+            text-align: left;
             margin: 0;
             padding: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
         }
         table {
             width: 90%;
@@ -25,19 +26,22 @@
         td {
             border: 1px solid black;
             padding: 5px;
-            text-align: left;
+            text-align: center;
             position: relative;
+            vertical-align: middle;
         }
         td:first-child, td:nth-child(3) {
-            width: 5%; /* Reduced from 10% */
+            width: 1%; /* Minimized width */
+            white-space: nowrap;
         }
         td:nth-child(2), td:nth-child(4) {
-            width: 45%;
+            width: auto;
+            text-align: left;
         }
         .btn {
-            margin-right: 5px;
             font-size: 0.8em;
             padding: 3px;
+            margin-left: 0px;
         }
         .dropdown {
             display: none;
@@ -73,18 +77,16 @@
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         }
         
-        function selectOption(event, btnId, value, dropdownId) {
+        function selectOption(event, btnId, value, dropdownId, index) {
             event.stopPropagation();
-            document.getElementById(btnId).textContent = value;
+            document.getElementById(btnId).textContent = index + ' ' + value;
             document.getElementById(dropdownId).style.display = 'none';
         }
         
         function clearAll() {
             for (let i = 1; i <= 6; i++) {
-                document.getElementById(`btn-${i}-1`).textContent = '▼';
-                document.getElementById(`btn-${i}-2`).textContent = '▼';
-                document.getElementById(`cell-${i}-1`).textContent = '';
-                document.getElementById(`cell-${i}-2`).textContent = '';
+                document.getElementById(`btn-${i}-1`).textContent = i;
+                document.getElementById(`btn-${i}-2`).textContent = i;
             }
         }
         
@@ -99,34 +101,32 @@
             <script>
                 for (let i = 1; i <= 6; i++) {
                     document.write(`<tr>
-                        <td>${i}</td>
                         <td>
-                            <button id="btn-${i}-1" class="btn" onclick="toggleDropdown(event, 'dropdown-${i}-1')">▼</button>
-                            <span id="cell-${i}-1" contenteditable="true"></span>
+                            <button id="btn-${i}-1" class="btn" onclick="toggleDropdown(event, 'dropdown-${i}-1')">${i}</button>
                             <ul id="dropdown-${i}-1" class="dropdown">
-                                <li onclick="selectOption(event, 'btn-${i}-1', '狼人', 'dropdown-${i}-1')">狼人</li>
-                                <li onclick="selectOption(event, 'btn-${i}-1', '平民', 'dropdown-${i}-1')">平民</li>
-                                <li onclick="selectOption(event, 'btn-${i}-1', '预言家', 'dropdown-${i}-1')">预言家</li>
-                                <li onclick="selectOption(event, 'btn-${i}-1', '女巫', 'dropdown-${i}-1')">女巫</li>
-                                <li onclick="selectOption(event, 'btn-${i}-1', '猎人', 'dropdown-${i}-1')">猎人</li>
-                                <li onclick="selectOption(event, 'btn-${i}-1', '守卫', 'dropdown-${i}-1')">守卫</li>
-                                <li onclick="selectOption(event, 'btn-${i}-1', '狼王', 'dropdown-${i}-1')">狼王</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '狼人', 'dropdown-${i}-1', ${i})">狼人</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '平民', 'dropdown-${i}-1', ${i})">平民</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '预言家', 'dropdown-${i}-1', ${i})">预言家</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '女巫', 'dropdown-${i}-1', ${i})">女巫</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '猎人', 'dropdown-${i}-1', ${i})">猎人</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '守卫', 'dropdown-${i}-1', ${i})">守卫</li>
+                                <li onclick="selectOption(event, 'btn-${i}-1', '狼王', 'dropdown-${i}-1', ${i})">狼王</li>
                             </ul>
                         </td>
-                        <td>${i}</td>
+                        <td contenteditable="true"></td>
                         <td>
-                            <button id="btn-${i}-2" class="btn" onclick="toggleDropdown(event, 'dropdown-${i}-2')">▼</button>
-                            <span id="cell-${i}-2" contenteditable="true"></span>
+                            <button id="btn-${i}-2" class="btn" onclick="toggleDropdown(event, 'dropdown-${i}-2')">${i}</button>
                             <ul id="dropdown-${i}-2" class="dropdown">
-                                <li onclick="selectOption(event, 'btn-${i}-2', '狼人', 'dropdown-${i}-2')">狼人</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '平民', 'dropdown-${i}-2')">平民</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '预言家', 'dropdown-${i}-2')">预言家</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '女巫', 'dropdown-${i}-2')">女巫</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '猎人', 'dropdown-${i}-2')">猎人</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '守卫', 'dropdown-${i}-2')">守卫</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '狼王', 'dropdown-${i}-2')">狼王</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '狼人', 'dropdown-${i}-2', ${i})">狼人</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '平民', 'dropdown-${i}-2', ${i})">平民</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '预言家', 'dropdown-${i}-2', ${i})">预言家</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '女巫', 'dropdown-${i}-2', ${i})">女巫</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '猎人', 'dropdown-${i}-2', ${i})">猎人</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '守卫', 'dropdown-${i}-2', ${i})">守卫</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '狼王', 'dropdown-${i}-2', ${i})">狼王</li>
                             </ul>
                         </td>
+                        <td contenteditable="true"></td>
                     </tr>`);
                 }
             </script>
