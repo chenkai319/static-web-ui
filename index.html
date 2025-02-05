@@ -86,7 +86,7 @@
         function clearAll() {
             for (let i = 1; i <= 6; i++) {
                 document.getElementById(`btn-${i}-1`).textContent = i;
-                document.getElementById(`btn-${i}-2`).textContent = i;
+                document.getElementById(`btn-${i}-2`).textContent = i + 6;
             }
         }
         
@@ -115,15 +115,15 @@
                         </td>
                         <td contenteditable="true"></td>
                         <td>
-                            <button id="btn-${i}-2" class="btn" onclick="toggleDropdown(event, 'dropdown-${i}-2')">${i}</button>
+                            <button id="btn-${i}-2" class="btn" onclick="toggleDropdown(event, 'dropdown-${i}-2')">${i + 6}</button>
                             <ul id="dropdown-${i}-2" class="dropdown">
-                                <li onclick="selectOption(event, 'btn-${i}-2', '狼人', 'dropdown-${i}-2', ${i})">狼人</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '平民', 'dropdown-${i}-2', ${i})">平民</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '预言家', 'dropdown-${i}-2', ${i})">预言家</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '女巫', 'dropdown-${i}-2', ${i})">女巫</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '猎人', 'dropdown-${i}-2', ${i})">猎人</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '守卫', 'dropdown-${i}-2', ${i})">守卫</li>
-                                <li onclick="selectOption(event, 'btn-${i}-2', '狼王', 'dropdown-${i}-2', ${i})">狼王</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '狼人', 'dropdown-${i}-2', ${i + 6})">狼人</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '平民', 'dropdown-${i}-2', ${i + 6})">平民</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '预言家', 'dropdown-${i}-2', ${i + 6})">预言家</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '女巫', 'dropdown-${i}-2', ${i + 6})">女巫</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '猎人', 'dropdown-${i}-2', ${i + 6})">猎人</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '守卫', 'dropdown-${i}-2', ${i + 6})">守卫</li>
+                                <li onclick="selectOption(event, 'btn-${i}-2', '狼王', 'dropdown-${i}-2', ${i + 6})">狼王</li>
                             </ul>
                         </td>
                         <td contenteditable="true"></td>
